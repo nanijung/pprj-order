@@ -1,0 +1,10 @@
+caffe\config\kafka\KafkaProcessor.class
+caffe\PolicyHandler.class
+caffe\OrderApplication.class
+caffe\Ordered.class
+caffe\AbstractEvent.class
+caffe\AbstractEvent$1.class
+caffe\OrderController.class
+caffe\Order.class
+caffe\OrderRepository.class
+caffe\OrderCanceled.class
