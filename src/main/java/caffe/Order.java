@@ -1,7 +1,12 @@
 package caffe;
 
 import javax.persistence.*;
+
+import caffe.config.kafka.KafkaProcessor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.messaging.handler.annotation.Payload;
+
 import java.util.List;
 
 @Entity
@@ -32,6 +37,14 @@ public class Order {
         orderCanceled.publishAfterCommit();
 
 
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverOrdered_Ship(@Payload Ordered ordered){
+
+        if(ordered.isMe()){
+            System.out.println("##### listener Ship : " + ordered.toJson());
+        }
     }
 
 
